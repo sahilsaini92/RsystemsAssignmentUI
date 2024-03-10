@@ -1,7 +1,7 @@
 import { Component  } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Account } from 'src/app/Entities/Account';
-import { AccountService } from 'src/app/services/account.service';
+import { Account } from '../../Entities/Account';
+import { AccountService } from '../../services/account.service';
 import { Router } from '@angular/router';
 
 @Component({

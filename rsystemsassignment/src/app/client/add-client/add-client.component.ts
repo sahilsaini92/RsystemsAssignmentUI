@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Account } from 'src/app/Entities/Account';
-import { Client } from 'src/app/Entities/Client';
-import { AccountService } from 'src/app/services/account.service';
-import { ClientService } from 'src/app/services/client.service';
+import { Account } from '../../Entities/Account';
+import { Client } from '../../Entities/Client';
+import { AccountService } from '../../services/account.service';
+import { ClientService } from '../../services/client.service';
 
 @Component({
   selector: 'app-add-client',

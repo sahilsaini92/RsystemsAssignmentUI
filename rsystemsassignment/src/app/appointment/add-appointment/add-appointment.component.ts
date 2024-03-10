@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Appointment } from 'src/app/Entities/Appointment';
-import { AppointmentService } from 'src/app/services/appointment.service';
-import { ClientService } from 'src/app/services/client.service';
+import { Appointment } from '../../Entities/Appointment';
+import { AppointmentService } from '../../services/appointment.service';
+import { ClientService } from '../../services/client.service';
 import {NativeDateAdapter} from '@angular/material/core';
-import { AccountService } from 'src/app/services/account.service';
+import { AccountService } from '../../services/account.service';
 
 @Component({
   selector: 'app-add-appointment',
