@@ -1,0 +1,47 @@
+<!-- grid.component.html -->
+
+<div class="example-container mat-elevation-z8">
+  
+    <label class="padding">Note : Click on cell to edit</label>
+  <mat-paginator [length]="totalItems" [pageSize]="pageSize" [pageIndex]="pageIndex"
+               (page)="onPageChange($event)">
+</mat-paginator>
+<mat-form-field class="mat-form-field padding">
+  <input matInput placeholder="Search" (keyup)="search($event)">
+</mat-form-field>
+    <table mat-table [dataSource]="dataSource">
+      <!-- Define columns -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef [class.hidden-column]="hideColumn">ID</th>
+        <td mat-cell *matCellDef="let element" [class.hidden-column]="hideColumn">{{element.accountID}}</td>
+      </ng-container>
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Name<mat-icon>edit</mat-icon></th>
+        <td mat-cell *matCellDef="let element; let i = index" (click)="onCellClick(i)">
+          <ng-container *ngIf="selectedCellIndex !== i; else editMode">
+            {{ element.accountName }}
+          </ng-container>
+          <ng-template #editMode>
+            <input matInput  [(ngModel)]="element.accountName"  (blur)="onEdit(element)">
+          </ng-template>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="createddate">
+        <th mat-header-cell *matHeaderCellDef>Created Date</th>
+        <td mat-cell *matCellDef="let element">{{element.createdDate | date:'yyyy-MM-dd'}}</td>
+      </ng-container>
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-icon-button [disabled]="true" (click)="openDeleteDialog(element.accountID)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    
+  </div>
+  
